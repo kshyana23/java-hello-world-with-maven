@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    
+    tools {
+        maven 'maven396'
+    }
+
+    stages {
+        stage('Cloning the github') {
+            steps {
+git branch: 'main', url: 'https://github.com/kshyana23/reference.git'            }
+        }
+    stage('running the shell script') {
+            steps {
+                  sh "ls -la"            }
+        }
+    
+    stage('integrating maven in Jenkin') {
+            steps {
+                   sh "mvn -version" }          }    
+    }
+ }
